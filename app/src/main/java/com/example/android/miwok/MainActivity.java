@@ -21,6 +21,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,68 +36,82 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-        // Find the View that shows the numbers category
         TextView numbers = (TextView) findViewById(R.id.numbers);
 
-        // Set a click listener on that View
-        numbers.setOnClickListener(new OnClickListener() {
-            // The code in this method will be executed when the numbers category is clicked on.
+        numbers.setOnClickListener(new View.OnClickListener(){
+
             @Override
-            public void onClick(View view) {
-                // Create a new intent to open the {@link NumbersActivity}
-                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
 
-                // Start the new activity
-                startActivity(numbersIntent);
+            public void onClick(View view){
+                Intent numberIntent = new Intent(MainActivity.this, NumbersActivity.class);
+                startActivity(numberIntent);
             }
-        });
+                                   }
+        );
 
-        // Find the View that shows the family category
-        TextView family = (TextView) findViewById(R.id.family);
 
-        // Set a click listener on that View
-        family.setOnClickListener(new OnClickListener() {
-            // The code in this method will be executed when the family category is clicked on.
-            @Override
-            public void onClick(View view) {
-                // Create a new intent to open the {@link FamilyActivity}
-                Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
-
-                // Start the new activity
-                startActivity(familyIntent);
-            }
-        });
-
-        // Find the View that shows the colors category
         TextView colors = (TextView) findViewById(R.id.colors);
 
-        // Set a click listener on that View
-        colors.setOnClickListener(new OnClickListener() {
-            // The code in this method will be executed when the colors category is clicked on.
-            @Override
-            public void onClick(View view) {
-                // Create a new intent to open the {@link ColorsActivity}
-                Intent colorsIntent = new Intent(MainActivity.this, ColorsActivity.class);
+        colors.setOnClickListener(new View.OnClickListener(){
 
-                // Start the new activity
-                startActivity(colorsIntent);
-            }
-        });
+                                       @Override
 
-        // Find the View that shows the phrases category
-        TextView phrases = (TextView) findViewById(R.id.phrases);
+                                       public void onClick(View view){
+                                           Intent colorIntent = new Intent(MainActivity.this, ColorsActivity.class);
+                                           startActivity(colorIntent);
+                                       }
+                                   }
+        );
 
-        // Set a click listener on that View
-        phrases.setOnClickListener(new OnClickListener() {
-            // The code in this method will be executed when the phrases category is clicked on.
-            @Override
-            public void onClick(View view) {
-                // Create a new intent to open the {@link PhrasesActivity}
-                Intent phrasesIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+        TextView family = (TextView) findViewById(R.id.family);
 
-                // Start the new activity
-                startActivity(phrasesIntent);
-            }
-        });
+        family.setOnClickListener(new View.OnClickListener(){
+
+                                      @Override
+
+                                      public void onClick(View view){
+                                          Intent familyIntent = new Intent(MainActivity.this, FamilyActivity.class);
+                                          startActivity(familyIntent);
+                                      }
+                                  }
+        );
+
+        TextView phrase = (TextView) findViewById(R.id.phrases);
+
+        phrase.setOnClickListener(new View.OnClickListener(){
+
+                                      @Override
+
+                                      public void onClick(View view){
+                                          Intent phraseIntent = new Intent(MainActivity.this, PhrasesActivity.class);
+                                          startActivity(phraseIntent);
+                                      }
+                                  }
+        );
     }
+
+   /*public void openColorsActivity(View view){
+        Intent startColorsActivity = new Intent(this, ColorsActivity.class);
+        startActivity(startColorsActivity);
+    }
+
+    public void openFamilyActivity(View view){
+        Intent startFamilyActivity = new Intent(this, FamilyActivity.class);
+        startActivity(startFamilyActivity);
+    }
+
+
+
+    public void openNumbersActivity(View view){
+        Intent startNumbersActivity = new Intent(this, NumbersActivity.class);
+        startActivity(startNumbersActivity);
+    }
+    public void openPhrasesActivity(View view){
+        Intent startPhrasesActivity = new Intent(this, PhrasesActivity.class);
+        startActivity(startPhrasesActivity);
+    }
+    */
+
+
+
 }
